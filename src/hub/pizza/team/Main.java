@@ -9,14 +9,15 @@ public class Main {
     static int bestResult;
     static int[] pizzas;
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
 	// write your code here
         System.out.println("helloWorld");
         Input input = readFile("test.txt");
-        System.out.println(String.format("M is %d", input.M));
-        System.out.println(String.format("N is %d", input.N));
-        System.out.println(String.format("types is %s", Arrays.toString(input.types)));
+        System.out.println(input.toString());
 
+        Algorithm greedy = new GreedyAlgorithm();
+        Output output = greedy.calculate(input);
+        writeResult(output, greedy.name());
 
     }
 
@@ -24,7 +25,27 @@ public class Main {
         //TODO algoritmo aqui
     }
 
-    private static void writeResult() {
+    private static void writeResult(Output output, String fileName) throws IOException {
+
+        System.out.printf("Writing to %s\n", fileName);
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < output.numberOfpizzas; i++) {
+            sb.append(String.format("%d ", output.selectedPizzas[i]));
+        }
+        String firstLine = String.format("%d", output.numberOfpizzas);
+        String secondLine = sb.toString();
+
+        // Console output
+        System.out.println(firstLine);
+        System.out.println(secondLine);
+
+        // file output
+        FileWriter fileWriter = new FileWriter(fileName);
+        PrintWriter printWriter = new PrintWriter(fileWriter);
+        printWriter.println(firstLine);
+        printWriter.println(secondLine);
+        printWriter.close();
     }
 
     private static Input readFile(String filename) throws FileNotFoundException {
