@@ -10,6 +10,9 @@ public class Main {
     static int N;
     static int[] types;
 
+    static int bestResult;
+    static int[] pizzas;
+
     public static void main(String[] args) throws FileNotFoundException {
 	// write your code here
 
@@ -21,9 +24,13 @@ public class Main {
         System.out.println(String.format("N is %d", N));
         System.out.println(String.format("types is %s", Arrays.toString(types)));
 
+    }
 
+    private static void doCalculations() {
+        //TODO algoritmo aqui
+    }
 
-
+    private static void writeResult() {
 
     }
 
