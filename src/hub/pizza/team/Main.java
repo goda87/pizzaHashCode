@@ -6,23 +6,17 @@ import java.util.Scanner;
 
 public class Main {
 
-    static int M;
-    static int N;
-    static int[] types;
-
     static int bestResult;
     static int[] pizzas;
 
     public static void main(String[] args) throws FileNotFoundException {
 	// write your code here
-
-
         System.out.println("helloWorld");
-        readFile();
+        Input input = readFile("test.txt");
+        System.out.println(String.format("M is %d", input.M));
+        System.out.println(String.format("N is %d", input.N));
+        System.out.println(String.format("types is %s", Arrays.toString(input.types)));
 
-        System.out.println(String.format("M is %d", M));
-        System.out.println(String.format("N is %d", N));
-        System.out.println(String.format("types is %s", Arrays.toString(types)));
 
     }
 
@@ -33,16 +27,18 @@ public class Main {
     private static void writeResult() {
     }
 
-    private static void readFile() throws FileNotFoundException {
-        File f = new File("test.txt");
+    private static Input readFile(String filename) throws FileNotFoundException {
+        Input input = new Input();
+        File f = new File(filename);
         FileInputStream is = new FileInputStream(f);
         Scanner sc = new Scanner (is);
-        M = Integer.parseInt(sc.next());
-        N = Integer.parseInt(sc.next());
-        types = new int[N];
-        for (int i = 0; i < N; i++) {
-            types[i] = Integer.parseInt(sc.next());
+        input.M = Integer.parseInt(sc.next());
+        input.N = Integer.parseInt(sc.next());
+        input.types = new int[input.N];
+        for (int i = 0; i < input.N; i++) {
+            input.types[i] = Integer.parseInt(sc.next());
         }
         sc.close();
+        return input;
     }
 }
