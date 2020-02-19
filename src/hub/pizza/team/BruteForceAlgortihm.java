@@ -3,11 +3,11 @@ package hub.pizza.team;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GreedyAlgorithm implements Algorithm {
+public class BruteForceAlgortihm implements Algorithm {
 
     @Override
     public String name() {
-        return "Greedy";
+        return "BruteForce";
     }
 
     @Override
@@ -29,7 +29,7 @@ public class GreedyAlgorithm implements Algorithm {
         output.selectedPizzas = new int[positions.size()];
 
         for (int i = 0; i < positions.size(); i++) {
-            output.selectedPizzas[positions.size() - i -1] = positions.get(i);
+            output.selectedPizzas[i] = positions.get(i);
         }
         return output;
     }
