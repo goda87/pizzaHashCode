@@ -31,7 +31,6 @@ public class Main {
     }
 
     private static void writeResult() {
-
     }
 
     private static void readFile() throws FileNotFoundException {
@@ -41,7 +40,7 @@ public class Main {
         M = Integer.parseInt(sc.next());
         N = Integer.parseInt(sc.next());
         types = new int[N];
-        for (int i = N-1; i >= 0; i--) {
+        for (int i = 0; i < N; i++) {
             types[i] = Integer.parseInt(sc.next());
         }
         sc.close();
