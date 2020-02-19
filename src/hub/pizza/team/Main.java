@@ -1,14 +1,13 @@
 package hub.pizza.team;
 
 import java.io.*;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
     static Algorithm[] algorithms = {
-            new GreedyAlgorithm(),
-            new BruteForceAlgortihm()
+            //new BruteForceAlgortihm(),
+            new GreedyAlgorithm()
     };
 
     static String[] dataSets = {
